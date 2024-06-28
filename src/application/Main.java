@@ -3,6 +3,7 @@ package application;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -14,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+       
 
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         GerenciamentoFuncionarios gFuncionario = new GerenciamentoFuncionarios();
@@ -29,13 +31,16 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    System.out.print("Nome do Funcionário: ");
+                    System.out.print("Nome do funcionário: ");
                     String nome = sc.nextLine();
 
-                    System.out.print("Cargo do Funcionário: ");
+                    System.out.print("Cpf: ");
+                    String cpf = sc.nextLine().replace(".", "").replace("-", "");
+
+                    System.out.print("Cargo: ");
                     String cargo = sc.nextLine();
 
-                    System.out.print("Salário do Funcionário: ");
+                    System.out.print("Salário: ");
                     Double salario = sc.nextDouble();
                     sc.nextLine();
 
@@ -43,16 +48,22 @@ public class Main {
                     String dataStr = sc.nextLine();
                     LocalDate dataContratacao = LocalDate.parse(dataStr, fmt);
 
-                    Funcionario _Funcionario = new Funcionario(nome, cargo, salario, dataContratacao);
-                    gFuncionario.adicionarFuncionario(_Funcionario);
+                    Funcionario _Funcionario = new Funcionario(nome, cpf, cargo, salario, dataContratacao);
+                    gFuncionario.adicionarFuncionario(_Funcionario, cpf);
                     System.out.println();
                     sc.nextLine();
                     break;
+
+                case 2:
+                    
+                    break;
                 case 3:
+
                     gFuncionario.exibirFuncionarios();
                     System.out.println();
                     sc.nextLine();
                     break;
+
                 case 4:
                     sc.close();
                     return;
