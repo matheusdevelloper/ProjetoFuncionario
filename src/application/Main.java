@@ -30,7 +30,9 @@ public class Main {
             sc.nextLine();
 
             switch (opcao) {
+
                 case 1:
+
                     System.out.print("Nome do funcionário: ");
                     String nome = sc.nextLine();
 
@@ -55,6 +57,11 @@ public class Main {
                     break;
 
                 case 2:
+
+                    System.out.print("Digite o CPF do funcionário a ser atualizado: ");
+                    String id_cpf = sc.nextLine().replace(".", "").replace("-", "");
+                    System.out.println();
+                    gFuncionario.atualizarDadosFuncionario(id_cpf);
                     
                     break;
                 case 3:

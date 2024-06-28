@@ -10,7 +10,15 @@ public class Funcionario {
     private String cargo;
     private Double salario;
     private LocalDate dataContratacao;
+
     
+    
+    public Funcionario(String cargo, Double salario, LocalDate dataContratacao) {
+        this.cargo = cargo;
+        this.salario = salario;
+        this.dataContratacao = dataContratacao;
+    }
+
     public Funcionario(String nome, String cpf, String cargo, Double salario, LocalDate dataContratacao) {
         this.nome = nome;
         this.cpf = cpf;
@@ -122,6 +130,15 @@ public class Funcionario {
         System.out.println("=================================================");
 
     }
+
+    @Override
+    public String toString() {
+        return "========== Informações do Funcionário ==========\n"
+              +"Nome: "+nome+"\n"
+              +"Cpf: "+cpf+"\n";
+    }
+
+    
      
     
     
